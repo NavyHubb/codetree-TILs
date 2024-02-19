@@ -53,8 +53,8 @@ public class Main {
             int ni = i + di[d];
             int nj = j + dj[d];
 
-            if (isOutOfRange(ni, nj)) continue;
             if (ni == pi && nj == pj) continue;
+            if (isOutOfRange(ni, nj)) continue;
 
             dfs(ni, nj, i, j, depth+1, sum+map[ni][nj]);
         }
