@@ -48,12 +48,10 @@ public class Main {
     // 이렇게 이동하는 것을 k번 반복한 후의 위치를 구하라
     // 아직 k번을 반복하지 못했더라도, 더 이상 새로 이동할 위치가 없다면 종료
     public static void BFS(int si, int sj) {
-        boolean result = false;
-
         Queue<int[]> que = new ArrayDeque<>();
         boolean[][] visited = new boolean[N][N];
         int x = map[si][sj];
-        max = new int[]{-1, -1, -1};
+        max = new int[]{si, sj, -1};
 
         que.add(new int[]{si, sj});
         visited[si][sj] = true;
@@ -62,15 +60,17 @@ public class Main {
             int[] cur = que.poll();
             int i = cur[0], j = cur[1];
 
-            if (map[i][j] > max[2] && map[i][j] < map[si][sj]) {  // 위치 갱신
-                max = new int[]{i, j, map[i][j]};
-            } else if (map[i][j] == max[2]) {  // 위치 비교 및 갱신
-                if (i < max[0]) {  // 행이 더 작은 경우
-                    max[0] = i;
-                    max[1] = j;
-                } else if (i == max[0]) {  // 행이 같은 경우
-                    if (j < max[1]) {
+            if (map[i][j] < map[si][sj]) {
+                if (map[i][j] > max[2]) {  // 위치 갱신
+                    max = new int[]{i, j, map[i][j]};
+                } else if (map[i][j] == max[2]) {  // 위치 비교 및 갱신
+                    if (i < max[0]) {  // 행이 더 작은 경우
+                        max[0] = i;
                         max[1] = j;
+                    } else if (i == max[0]) {  // 행이 같은 경우
+                        if (j < max[1]) {
+                            max[1] = j;
+                        }
                     }
                 }
             }
