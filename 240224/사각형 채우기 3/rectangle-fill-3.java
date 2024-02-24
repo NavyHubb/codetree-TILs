@@ -11,10 +11,12 @@ public class Main {
         int[] dp = new int[1001];
         dp[0] = 1;
         dp[1] = 2;
-        dp[2] = 7;
 
-        for (int i = 3; i <= N; i++) {
-            dp[i] = (dp[i-1]*2%MOD + dp[i-2]*4%MOD) % MOD;
+        for (int i = 2; i <= N; i++) {
+            dp[i] = (dp[i-1]*2 + dp[i-2]*3) % MOD;
+            for (int k = i-3; k >= 0; k--) {
+                dp[i] = (dp[i] + dp[k]*2) % MOD;
+            }
         }
 
         System.out.println(dp[N]);
