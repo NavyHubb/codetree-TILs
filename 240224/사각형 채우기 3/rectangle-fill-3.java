@@ -14,7 +14,7 @@ public class Main {
         dp[2] = 7;
 
         for (int i = 3; i <= N; i++) {
-            dp[i] = (dp[i-1]*2 + dp[i-2]*4) % MOD;
+            dp[i] = (dp[i-1]*2%MOD + dp[i-2]*4%MOD) % MOD;
         }
 
         System.out.println(dp[N]);
