@@ -1,24 +1,32 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+
+    static int[] dp;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
-        int[] dp = new int[46];
-        dp[1] = dp[2] = 1;
+        dp = new int[46];
+        Arrays.fill(dp, -1);
 
-        if (N <= 2) {
-            System.out.println(dp[N]);
-            return;
+        System.out.println(fib(N));
+    }
+
+    static int fib(int n) {
+        if (dp[n] != -1) {
+            return dp[n];
         }
 
-        for (int i = 3; i <= N; i++) {
-            dp[i] = dp[i-1] + dp[i-2];
+        if (n <= 2) {
+            dp[n] = 1;
+        } else {
+            dp[n] = fib(n-1) + fib(n-2);
         }
 
-        System.out.println(dp[N]);
+        return dp[n];
     }
 
 }
