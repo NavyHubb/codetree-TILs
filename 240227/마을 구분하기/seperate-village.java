@@ -22,6 +22,7 @@ public class Main {
                     .mapToInt(Integer::parseInt).toArray();
         }
         visited = new boolean[N][N];
+        list = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
