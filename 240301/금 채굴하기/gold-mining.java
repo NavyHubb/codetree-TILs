@@ -29,12 +29,9 @@ public class Main {
         }
 
         int res = 0;
-        for (int k = 0; k <= N/2; k++) {
+        for (int k = 0; k < N; k++) {
             for (int i = 0; i < N; i++) {
-                if (i - k < 0 || i + k >= N) continue;
                 for (int j = 0; j < N; j++) {
-                    if (j - k < 0 || j + k >= N) continue;
-
                     res = Math.max(res, BFS(i, j, k));
                 }
             }
