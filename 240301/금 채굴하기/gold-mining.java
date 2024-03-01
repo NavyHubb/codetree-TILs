@@ -29,7 +29,7 @@ public class Main {
         }
 
         int res = 0;
-        for (int k = 0; k < N; k++) {
+        for (int k = 0; k <= N; k++) {
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     res = Math.max(res, BFS(i, j, k));
