@@ -41,33 +41,16 @@ public class Main {
     }
 
     public static int BFS(int si, int sj, int k) {
-        boolean[][] visited = new boolean[N][N];
-        Queue<int[]> que = new LinkedList<>();
-
-        que.add(new int[]{si, sj});
-        visited[si][sj] = true;
-
-        int cost = k*k + (k+1)*(k+1);
         int cnt = 0;
-        while (!que.isEmpty()) {
-            int[] cur = que.poll();
-            int i = cur[0], j = cur[1];
-
-            if (map[i][j] == 1) cnt++;
-
-            for (int d = 0; d < 4; d++) {
-                int ni = i + di[d];
-                int nj = j + dj[d];
-
-                if (ni < 0 || nj < 0 || ni >= N || nj >= N) continue;
-                if (visited[ni][nj]) continue;
-                if (Math.abs(si-ni) + Math.abs(sj-nj) > k) continue;
-
-                visited[ni][nj] = true;
-                que.add(new int[]{ni, nj});
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (Math.abs(i-si) + Math.abs(j-sj) <= k) {
+                    if (map[i][j] == 1) cnt++;
+                }
             }
         }
 
+        int cost = k*k + (k+1)*(k+1);
         return cnt*M >= cost ? cnt : 0;
     }
 
