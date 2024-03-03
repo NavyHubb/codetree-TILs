@@ -30,7 +30,7 @@ public class Main {
         }
 
         int cnt = 0;
-        int height = 0;
+        int height = 1;
         // 안전구역의 갯수가 같다면 가장 작은 높이를 우선 채택
         for (int k = 1; k < maxHeight; k++) {
             int tmpCnt = solution(k);
