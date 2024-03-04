@@ -45,7 +45,7 @@ public class Main {
                 int ni = i + di[d];
                 int nj = j + dj[d];
 
-                if (ni < 0 || nj < 0 || ni >= N || nj >= N) continue;
+                if (ni < 0 || nj < 0 || ni >= N || nj >= M) continue;
                 if (map[ni][nj] != 1) continue;
                 if (visited[ni][nj]) continue;
 
