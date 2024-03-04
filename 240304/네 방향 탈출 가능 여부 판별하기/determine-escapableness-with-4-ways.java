@@ -10,7 +10,6 @@ public class Main {
 
     static int N, M;
     static int[][] map;
-    static boolean[][] visited;
     static int[] di = {-1, 1, 0, 0};
     static int[] dj = {0, 0, -1, 1};
 
@@ -31,7 +30,7 @@ public class Main {
 
     public static boolean BFS() {
         Queue<int[]> que = new ArrayDeque<>();
-        visited = new boolean[N][N];
+        boolean[][] visited = new boolean[N][M];
 
         que.add(new int[]{0, 0});
         visited[0][0] = true;
