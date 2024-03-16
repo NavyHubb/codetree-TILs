@@ -15,7 +15,7 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N][];
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < N; i++) {
             map[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
 
