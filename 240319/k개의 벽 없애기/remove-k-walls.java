@@ -13,7 +13,7 @@ public class Main {
     static int[][] map;
     static int[][] R;
     static int[] comb;
-    static int result = Integer.MIN_VALUE;
+    static int min_result = Integer.MAX_VALUE;
     static int[] di = {-1, 1, 0, 0};
     static int[] dj = {0, 0, -1, 1};
     static List<Point> walls;
@@ -56,12 +56,15 @@ public class Main {
         }
 
         makeComb(0, 0);
-        System.out.print(result);
+        System.out.print(min_result);
     }
 
     public static void makeComb(int depth, int start) {
         if (depth == K) {
-            result = Math.max(result, BFS());
+            int result = BFS();
+            if (result != -1) {
+                min_result = Math.min(min_result, result);
+            }
             return;
         }
 
