@@ -56,7 +56,8 @@ public class Main {
         }
 
         makeComb(0, 0);
-        System.out.print(min_result);
+
+        System.out.print(min_result == Integer.MAX_VALUE ? -1 : min_result);
     }
 
     public static void makeComb(int depth, int start) {
