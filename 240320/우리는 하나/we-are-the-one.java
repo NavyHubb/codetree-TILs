@@ -60,7 +60,9 @@ public class Main {
             int si = idx / N;
             int sj = idx % N;
 
+            visited[si][sj] = true;
             que.add(new int[]{si, sj});
+            cnt++;
 
             while (!que.isEmpty()) {
                 int[] cur = que.poll();
@@ -72,9 +74,10 @@ public class Main {
 
                     if (ni < 0 || nj < 0 || ni >= N || nj >= N) continue;
 
-                    int gap = Math.abs(map[si][sj] - map[ni][nj]);
+                    int gap = Math.abs(map[i][j] - map[ni][nj]);
                     if (!(gap >= U && gap <= D)) continue;
 
+                    if (ni == si && nj == sj) continue;
                     if (visited[ni][nj]) continue;
 
                     visited[ni][nj] = true;
