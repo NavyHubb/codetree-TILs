@@ -71,10 +71,11 @@ public class Main {
                     int nj = j + dj[d];
 
                     if (ni < 0 || nj < 0 || ni >= N || nj >= N) continue;
-                    if (visited[ni][nj]) continue;
 
-                    int gap = Math.abs(map[i][j] - map[ni][nj]);
+                    int gap = Math.abs(map[si][sj] - map[ni][nj]);
                     if (!(gap >= U && gap <= D)) continue;
+
+                    if (visited[ni][nj]) continue;
 
                     visited[ni][nj] = true;
                     que.add(new int[]{ni, nj});
