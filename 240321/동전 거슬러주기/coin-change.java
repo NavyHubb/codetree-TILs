@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     static final int INF = Integer.MAX_VALUE;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -23,7 +24,9 @@ public class Main {
             for (int coin : coins) {
                 if (i < coin) continue Loop;
 
-                dp[i] = Math.min(dp[i], dp[i-coin]+1);
+                if (dp[i-coin] != INF) {
+                    dp[i] = Math.min(dp[i], dp[i-coin]+1);
+                }
             }
         }
 
