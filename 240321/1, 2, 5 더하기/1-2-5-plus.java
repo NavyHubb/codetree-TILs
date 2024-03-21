@@ -14,8 +14,9 @@ public class Main {
             for (int num : nums) {
                 if (num > i) break;
 
-                dp[i] += dp[i-num];
+                dp[i] += dp[i-num] % 10_007;
             }
+            dp[i] %= 10_007;
         }
 
         System.out.print(dp[n]);
