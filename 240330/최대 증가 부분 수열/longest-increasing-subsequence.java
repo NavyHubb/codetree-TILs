@@ -1,5 +1,7 @@
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -9,7 +11,7 @@ public class Main {
         int[] nums = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
         int[] dp = new int[N];
-        Arrays.fill(dp, Integer.MIN_VALUE);
+        Arrays.fill(dp, 1);
         dp[0] = 1;
         for (int i = 1; i < N; i++) {
             for (int j = 0; j < i; j++) {
