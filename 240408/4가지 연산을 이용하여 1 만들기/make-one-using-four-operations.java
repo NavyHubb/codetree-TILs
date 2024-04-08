@@ -15,7 +15,7 @@ public class Main {
         }
 
         Queue<int[]> que = new LinkedList<>();
-        boolean[] visited = new boolean[1_000_000_000];
+        boolean[] visited = new boolean[5_000_000];
         
         que.add(new int[]{N, 0});
         visited[N] = true;
@@ -60,7 +60,7 @@ public class Main {
                             visited[next] = true;
                             que.add(new int[]{next, cnt+1});
                         }
-                    } else if (i == 3) {
+                    } else {
                         if (n % 3 == 0) {
                             next = n/3;
 
