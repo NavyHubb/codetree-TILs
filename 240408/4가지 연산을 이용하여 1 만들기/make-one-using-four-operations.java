@@ -39,6 +39,11 @@ public class Main {
                         if (next < 0) continue;
                         if (visited[next]) continue;
 
+                        if (next == 1) {
+                            System.out.print(cnt+1);
+                            System.exit(0);
+                        }
+
                         visited[next] = true;
                         que.add(new int[]{next, cnt+1});
                     } else if (i == 2) {
