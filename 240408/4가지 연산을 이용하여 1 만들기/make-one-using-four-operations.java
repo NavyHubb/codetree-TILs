@@ -9,61 +9,55 @@ public class Main {
         
         int N = sc.nextInt();
 
-        Queue<Integer> que = new LinkedList<>();
+        Queue<int[]> que = new LinkedList<>();
         boolean[] visited = new boolean[1_000_001];
         
-        que.add(N);
+        que.add(new int[]{N, 0});
         visited[N] = true;
 
-        int depth = 2;
         while (!que.isEmpty()) {
-            int size = que.size();
-
-            while (size-- > 0) {
-                int cur = que.poll();
+            int[] cur = que.poll();
+            int n = cur[0], cnt = cur[1];
                 
-                int next = 0;
+                int next = n;
                 for (int i = 0; i < 3; i++) {
                     if (i == 0) {
-                        next = cur + 1;
+                        next = n + 1;
 
                         if (visited[next]) continue;
 
                         visited[next] = true;
-                        que.add(next);
+                        que.add(new int[]{next, cnt+1});
                     } else if (i == 1) {
-                        if (cur % 2 == 0) {
-                            next /= 2;
+                        if (n % 2 == 0) {
+                            next = n/2;
 
                             if (next == 1) {
-                                System.out.print(depth);
+                                System.out.print(cnt+1);
                                 System.exit(0);
                             }
 
                             if (visited[next]) continue;
 
                             visited[next] = true;
-                            que.add(next);
+                            que.add(new int[]{next, cnt+1});
                         }
                     } else {
-                        if (cur % 3 == 0) {
-                            next /= 3;
+                        if (n % 3 == 0) {
+                            next = n/3;
 
                             if (next == 1) {
-                                System.out.print(depth);
+                                System.out.print(cnt+1);
                                 System.exit(0);
                             }
 
                             if (visited[next]) continue;
 
                             visited[next] = true;
-                            que.add(next);
+                            que.add(new int[]{next, cnt+1});
                         }
                     }
                 }
-            }
-
-            depth++;
         }
         
     }
