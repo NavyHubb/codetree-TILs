@@ -9,6 +9,11 @@ public class Main {
         
         int N = sc.nextInt();
 
+        if (N == 1) {
+            System.out.print(0);
+            System.exit(0);
+        }
+
         Queue<int[]> que = new LinkedList<>();
         boolean[] visited = new boolean[1_000_001];
         
