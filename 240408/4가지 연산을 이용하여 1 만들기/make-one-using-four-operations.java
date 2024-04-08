@@ -15,7 +15,7 @@ public class Main {
         }
 
         Queue<int[]> que = new LinkedList<>();
-        boolean[] visited = new boolean[1_000_001];
+        boolean[] visited = new boolean[1_000_000_000];
         
         que.add(new int[]{N, 0});
         visited[N] = true;
