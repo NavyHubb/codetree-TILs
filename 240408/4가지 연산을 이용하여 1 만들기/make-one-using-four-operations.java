@@ -25,7 +25,7 @@ public class Main {
             int n = cur[0], cnt = cur[1];
                 
                 int next = n;
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 4; i++) {
                     if (i == 0) {
                         next = n + 1;
 
@@ -34,6 +34,14 @@ public class Main {
                         visited[next] = true;
                         que.add(new int[]{next, cnt+1});
                     } else if (i == 1) {
+                        next = n - 1;
+                        
+                        if (next < 0) continue;
+                        if (visited[next]) continue;
+
+                        visited[next] = true;
+                        que.add(new int[]{next, cnt+1});
+                    } else if (i == 2) {
                         if (n % 2 == 0) {
                             next = n/2;
 
@@ -47,7 +55,7 @@ public class Main {
                             visited[next] = true;
                             que.add(new int[]{next, cnt+1});
                         }
-                    } else {
+                    } else if (i == 3) {
                         if (n % 3 == 0) {
                             next = n/3;
 
