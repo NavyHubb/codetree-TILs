@@ -20,7 +20,7 @@ public class Main {
         }
 
         solution();
-        System.out.print(max);
+        System.out.print(max == 0 ? -1 : max);
     }
 
     public static void solution() {
