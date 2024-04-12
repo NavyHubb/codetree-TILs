@@ -38,7 +38,9 @@ public class Main {
             for (int j = 0; j < M; j++) {
                 sb.append(map[i][j]).append(' ');
             }
-            sb.append('\n');
+            if (i != N-1) {
+                sb.append('\n');
+            }
         }
         System.out.print(sb);
     }
