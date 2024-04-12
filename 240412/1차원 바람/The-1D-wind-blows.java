@@ -21,7 +21,7 @@ public class Main {
 
         for (int i = 0; i < Q; i++) {
             st = new StringTokenizer(br.readLine());
-            
+
             int r = Integer.parseInt(st.nextToken()) - 1;
             int d = 0;
             if (st.nextToken().equals("L")) {
@@ -32,7 +32,7 @@ public class Main {
 
             move(r, d);
         }
-        
+
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
@@ -55,13 +55,13 @@ public class Main {
             int r = cur[0], d = cur[1];
 
             // 현재 행 이동
-            if (d == -1) {
+            if (d == -1) {  // 서풍인 경우
                 int tmp = map[r][M-1];
                 for (int j = M-1; j > 0; j--) {
                     map[r][j] = map[r][j-1];
                 }
                 map[r][0] = tmp;
-            } else {
+            } else {  // 우풍인 경우
                 int tmp = map[r][0];
                 for (int j = 0; j < M-1; j++) {
                     map[r][j] = map[r][j+1];
@@ -71,7 +71,7 @@ public class Main {
 
             // 주변 행 탐색
             boolean flag = false;
-            if (r > 1) {
+            if (r > 0) {
                 if (!visited[r-1]) {
                     visited[r-1] = true;
                     for (int j = 0; j < M; j++) {
@@ -85,7 +85,7 @@ public class Main {
                         que.add(new int[]{r-1, -d});
                     }
                 }
-            } 
+            }
 
             if (r < N-1) {
                 if (!visited[r+1]) {
