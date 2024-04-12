@@ -69,7 +69,6 @@ public class Main {
                 map[r][M-1] = tmp;
             }
 
-            // 주변 행 탐색
             boolean flag = false;
             if (r > 0) {
                 if (!visited[r-1]) {
