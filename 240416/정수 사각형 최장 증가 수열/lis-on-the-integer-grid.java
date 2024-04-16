@@ -19,14 +19,10 @@ public class Main {
         }
 
         dp = new int[N][N];
-        for (int i = 0; i < N; i++) {
-            Arrays.fill(dp[i], -1);
-        }
 
         int result = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                visited = new boolean[N][N];
                 max = 0;
                 dfs(i, j, 1);
 
@@ -48,7 +44,11 @@ public class Main {
             if (ni < 0 || nj < 0 || ni >= N || nj >= N) continue;
 
             if (map[ni][nj] > map[i][j]) {
-                dfs(ni, nj, cnt+1);
+                if (dp[ni][nj] == 0) {
+                    dfs(ni, nj, cnt+1);
+                } else {
+                    max = Math.max(max, cnt+dp[ni][nj]-1);
+                }
             }
         }
     }
