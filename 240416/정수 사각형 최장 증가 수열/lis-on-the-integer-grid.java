@@ -29,7 +29,6 @@ public class Main {
             }
         }
 
-        result = 0;
         while (!pq.isEmpty()) {
             int[] cur = pq.poll();
             int i = cur[0], j = cur[1], num = cur[2];
@@ -44,8 +43,13 @@ public class Main {
                     dp[ni][nj] = Math.max(dp[ni][nj], dp[i][j] + 1);
                 }
             }
+        }
 
-            result = Math.max(result, dp[i][j]);
+        result = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                result = Math.max(result, dp[i][j]);
+            }
         }
 
         System.out.println(result);
