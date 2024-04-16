@@ -47,7 +47,7 @@ public class Main {
                 if (dp[ni][nj] == 0) {
                     dfs(ni, nj, cnt+1);
                 } else {
-                    max = Math.max(max, cnt+dp[ni][nj]-1);
+                    max = Math.max(max, cnt+dp[ni][nj]);
                 }
             }
         }
