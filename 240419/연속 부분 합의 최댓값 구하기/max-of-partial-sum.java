@@ -18,7 +18,7 @@ public class Main {
         int[] dp = new int[N];
         System.arraycopy(arr, 0, dp, 0, N);
 
-        int result = Integer.MIN_VALUE;
+        int result = arr[0];
         for (int i = 1; i < N; i++) {
             dp[i] = Math.max(dp[i-1] + arr[i], arr[i]);
             result = Math.max(result, dp[i]);
